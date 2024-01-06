@@ -1,0 +1,79 @@
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        &__title {
+            color: #573292;
+        }
+
+        &__start-btn {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            padding: .5rem;
+            outline: none;
+            border: none;
+            background-color: #573292;
+        }
+    }
+
+    .challenge-manager-btn {
+        padding: .5rem 1rem;
+        color: #000;
+        font-weight: 900;
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid #c7c7c7;
+    }
+
+    .add-challenge {
+
+        &__error-text {
+            padding: 1rem 0;
+            color: red;
+        }
+
+        &__form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 500px;
+
+           
+
+            label{
+                margin-bottom: 1rem;
+            }
+
+            input {
+                border: 1px solid #c7c7c7;
+                outline: none;
+                padding: .7rem;
+                border-radius: 5px;
+                margin-bottom: 1rem;
+            }
+
+            
+            
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: .7rem 1rem;
+            background-color: #573292;
+            color: #fff;
+            outline: none;
+            border: none;
+            border-radius: 900px;
+        }
+    }
+}

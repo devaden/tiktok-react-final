@@ -1,0 +1,61 @@
+.active-question-page{
+    background-color: #0E2E85;
+    
+}
+.active-question-page__winner-page {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 5rem 0 0rem 20rem;
+
+  &__streamerImage {
+    width: 48%;
+    border-radius: 10px;
+  }
+
+  .winner {
+    width: 48%;
+    border: 1px solid #0E2E85;
+    border-radius: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    margin-top: 40px;
+    height: 60px;
+    background-color: #081929;
+    color: #fff;
+    text-align: center;
+
+   
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.active-question-page {
+
+
+  color: #fff;
+  
+
+  h1 {
+    width: 48%;
+    margin: 0rem 0 1rem 21rem;
+    border: 1px solid #0E2E85;
+    padding: 1rem;
+    background-color: #09256E ;
+
+  }
+  p {
+    
+    width: 100%; // Bu iç div içinde h1 ve p alt alta yer alacak
+
+    color: #fff;
+    margin: 2rem 0 4rem 21rem;
+
+
+  }
+  
+}

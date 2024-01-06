@@ -1,0 +1,39 @@
+.radius {
+    border: 1px solid #c7c7c7;
+    margin-top: 3rem;
+    width: 100%;
+    border-radius: 10px;
+    padding:0 1rem;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+
+    border-collapse: collapse;
+    &__head {
+        tr {
+            padding: 1rem;
+            margin: 0;
+        }
+        tr th{
+            border-bottom: 1px solid #c7c7c7;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
+    &__body {
+        tr td {
+            border-bottom: 1px solid #c7c7c7;
+            padding: 1rem;
+            text-align: center;            
+        }
+
+        tr:last-child{
+            td {
+                border: none;
+            }
+        }
+    }
+}
