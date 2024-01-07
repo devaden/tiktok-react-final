@@ -1,61 +1,59 @@
-.active-question-page{
-    background-color: #0E2E85;
-    
-}
-.active-question-page__winner-page {
+.active-question-page {
+  background-color: #0E2E85;
+  padding: 1rem 3rem;
   display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 5rem 0 0rem 20rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  &__streamerImage {
-    width: 48%;
-    border-radius: 10px;
-  }
-
-  .winner {
-    width: 48%;
-    border: 1px solid #0E2E85;
-    border-radius: 30px;
-    padding: 10px;
-    box-sizing: border-box;
-    align-items: center;
-    margin-top: 40px;
-    height: 60px;
-    background-color: #081929;
-    color: #fff;
-    text-align: center;
-
-   
-
-    p {
-      margin: 0;
+  &__winner-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    justify-content: start;
+    gap: 1rem;
+    width: 80%;
+    &__streamerImage {
+      height: 100%;
+    }
+    &__winner {
+      padding: 1rem;
+      line-height: 2;
+      text-align: center;
+      background-color: #081929;
+      border-radius:10px;
+      color: #fff;
+      margin-top: 1rem;
     }
   }
-}
 
-.active-question-page {
+  &__question-page {
+    width: 80%;
+    &__question {
+      background: #09266ef6;
+      color: #fff;
+      margin-bottom: 2rem;
+      width: 100%;
+      padding:.3rem 1rem;
+      text-transform: capitalize;
+    }
 
+    &__answer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-  color: #fff;
-  
-
-  h1 {
-    width: 48%;
-    margin: 0rem 0 1rem 21rem;
-    border: 1px solid #0E2E85;
-    padding: 1rem;
-    background-color: #09256E ;
-
+      &__keyword {
+        background-color: #fff;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1.3rem;
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      }
+    }
   }
-  p {
-    
-    width: 100%; // Bu iç div içinde h1 ve p alt alta yer alacak
-
-    color: #fff;
-    margin: 2rem 0 4rem 21rem;
-
-
-  }
-  
 }

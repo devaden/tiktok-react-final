@@ -16,59 +16,20 @@ import getCollectionItemOnSubscriptionHook from '../../hooks/getCollectionItemOn
 const ChallengeActiveQuestionPage = () => {
   const params:any = useParams()
   
-  const [challenge,setChallenge] = useState<any>({username:""})
-  const [questions,setQuestions] = useState<any>([])
+ 
   const [activeQuestion,setActiveQuestion] = useState<any>({answer:""})
   const [answerUserList,setAnswerUserList] = useState<any>([])
 
 
 
-  const [isActive,setIsActive] = useState(false)
-  const [error,setError] = useState("")
-  const [addQuestionItem,setAddQuestionItem] = useState({
-    questionTitle:"",
-    questionAnswer:"",
-    questionScore:20
-  })
-  
-
-  const questionAddHandle = ()=>{
-    {
-      if(addQuestionItem.questionTitle && addQuestionItem.questionAnswer && addQuestionItem.questionScore) {
-        addCollectionItemHook("questions",addQuestionItem)
-        setError("")
-        setIsActive(false)        
-        GetCollectionHook("questions").then((x:any)=>setQuestions(x))
-      }else {
-        setError("* 'Soru' ve 'Cevap' alanı boş bırakılamaz.")
-      }
-    }
-  }
+ 
 
 
-  const sendQuestionHandler = ()=> {
-    const random = Math.ceil(Math.random()*questions.length-1)
-    console.log(random)
-    const newQuestion = questions[random]
-    updateCollectionByIdHook("activeQuestion","active",{
-      challengeId:challenge.id,
-      answer:newQuestion.questionAnswer,
-      title:newQuestion.questionTitle,
-      score:newQuestion.questionScore
-    })
-  }
 
-
-  const deleteQuestionHandler = (id:string) => {
-    deleteDocByIdHook("questions",id)
-    GetCollectionHook("questions").then((x:any)=>setQuestions(x))
-  }
-
+ 
 
   useEffect(()=>{
-    getCollectionByIdHook("challenges",params.id).then((x:any)=>setChallenge(x))
     getCollectionByIdHook("activeQuestion","active").then((x:any)=>setActiveQuestion(x))
-    GetCollectionHook("questions").then((x:any)=>setQuestions(x))
     getCollectionItemByIdOnSubscriptionHook("activeQuestion","active",setActiveQuestion)
     getCollectionItemOnSubscriptionHook("answerUserList",setAnswerUserList)
   },[])
@@ -79,14 +40,15 @@ const ChallengeActiveQuestionPage = () => {
     <div className={styles["active-question-page"]}>
         <div className={styles["active-question-page__winner-page"]}>
           <img className={styles["active-question-page__winner-page__streamerImage"]} src={images.yayinciImage} alt="yayincı image" />
-          {answerUserList.filter((x:any)=>x.questionId == activeQuestion.questionId)[0] && <div className={styles.winner}>
+          {answerUserList.filter((x:any)=>x.questionId == activeQuestion.questionId)[0] && 
+          <div   className={styles["active-question-page__winner-page__winner"]}>
             <p>Son soruyu bilen</p>
             <p>{answerUserList.filter((x:any)=>x.questionId == activeQuestion.questionId)[0].username}</p>
           </div>}
         </div>
-        <div>
-          <h1>{activeQuestion.title}</h1>
-          <p>{activeQuestion.answer}</p>
+        <div className={styles["active-question-page__question-page"]}>
+          <h1  className={styles["active-question-page__question-page__question"]}>{activeQuestion.title}</h1>
+          <p  className={styles["active-question-page__question-page__answer"]}>{activeQuestion.answer.replaceAll(" ","").trim().split("").map((keyword:string,i:number)=>(<span  className={styles["active-question-page__question-page__answer__keyword"]}>{i==0 ? keyword:""}</span>))}</p>
         </div>
     </div>
   )

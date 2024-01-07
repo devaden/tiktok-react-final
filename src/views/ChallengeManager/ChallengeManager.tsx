@@ -16,7 +16,7 @@ const ChallengeManager = () => {
   const params:any = useParams()
   
   const [challenge,setChallenge] = useState<any>({username:""})
-  const [questions,setQuestions] = useState<any>([])
+  const [questions,setQuestions] = useState<any[]>([])
   const [activeQuestion,setActiveQuestion] = useState<any>({answer:""})
 
 
@@ -35,7 +35,12 @@ const ChallengeManager = () => {
       if(addQuestionItem.questionTitle && addQuestionItem.questionAnswer && addQuestionItem.questionScore) {
         addCollectionItemHook("questions",addQuestionItem)
         setError("")
-        setIsActive(false)        
+        setIsActive(false)      
+        setAddQuestionItem({
+          questionTitle:"",
+          questionAnswer:"",
+          questionScore:20
+        })  
         GetCollectionHook("questions").then((x:any)=>setQuestions(x))
       }else {
         setError("* 'Soru' ve 'Cevap' alanı boş bırakılamaz.")
@@ -127,7 +132,7 @@ const ChallengeManager = () => {
                 <header className={styles["challenge-manager__section__question-list__header"]}>
                   <h6>Soru Havuzu</h6> <button onClick={()=>setIsActive(true)}><img src={images.addQuestionIcon} alt="" /> Soru Ekle</button>
                 </header>
-                {!questions? <img src={images.ChallengeQuestion} alt="ChallengeQuestion" />:(
+                {questions.length == 0 ? <img src={images.ChallengeQuestion} alt="ChallengeQuestion" />:(
                   <div>
                     <Table
                       theads={["ID","Soru","Cevap","Puan","Düzenle"]}
